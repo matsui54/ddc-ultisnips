@@ -1,0 +1,45 @@
+*ddc-ultisnips.txt*	ultisnips source for ddc.vim
+
+Author: matsui54 <haru.matu9168 at gmail.com>
+License: MIT license
+
+CONTENTS						*ddc-ultisnips-contents*
+
+Introduction		|ddc-ultisnips-introduction|
+Install			|ddc-ultisnips-install|
+Examples		|ddc-ultisnips-examples|
+Params			|ddc-ultisnips-params|
+
+
+==============================================================================
+INTRODUCTION					*ddc-ultisnips-introduction*
+
+This source collects snippets from ultisnips.
+
+==============================================================================
+INSTALL							*ddc-ultisnips-install*
+
+Please install both "ddc.vim", "denops.vim" and "ultisnips".
+
+https://github.com/Shougo/ddc.vim
+https://github.com/vim-denops/denops.vim
+https://github.com/SirVer/ultisnips
+
+
+==============================================================================
+EXAMPLES						*ddc-ultisnips-examples*
+
+>
+	call ddc#custom#patch_global('sources', ['ultisnips'])
+	call ddc#custom#patch_global('sourceOptions', {
+	      \ '_': {'matchers': ['matcher_head']},
+	      \ 'ultisnips': {'mark': 'US'},
+	      \ })
+<
+
+==============================================================================
+PARAMS							*ddc-ultisnips-params*
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
+
