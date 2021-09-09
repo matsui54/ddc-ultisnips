@@ -1,8 +1,8 @@
 import {
   BaseSource,
   Candidate,
-} from "https://deno.land/x/ddc_vim@v0.5.0/types.ts#^";
-import { Denops, vars } from "https://deno.land/x/ddc_vim@v0.5.0/deps.ts#^";
+} from "https://deno.land/x/ddc_vim@v0.5.2/types.ts#^";
+import { Denops, vars } from "https://deno.land/x/ddc_vim@v0.5.2/deps.ts#^";
 
 export class Source extends BaseSource {
   async gatherCandidates(args: {
