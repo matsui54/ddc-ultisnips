@@ -1,8 +1,8 @@
 import {
   BaseSource,
-  Candidate,
-} from "https://deno.land/x/ddc_vim@v0.14.0/types.ts#^";
-import { Denops, vars } from "https://deno.land/x/ddc_vim@v0.14.0/deps.ts#^";
+  Item,
+} from "https://deno.land/x/ddc_vim@v2.0.0/types.ts#^";
+import { Denops, vars } from "https://deno.land/x/ddc_vim@v2.0.0/deps.ts#^";
 
 export type Snippets = {
   [word: string]: {
@@ -11,10 +11,12 @@ export type Snippets = {
   };
 };
 
-export class Source extends BaseSource {
-  async gatherCandidates(args: {
+type Params = Record<never, never>;
+
+export class Source extends BaseSource<Params> {
+  async gather(args: {
     denops: Denops;
-  }): Promise<Candidate[]> {
+  }): Promise<Item[]> {
     if (await vars.g.get(args.denops, "did_plugin_ultisnips") == null) {
       return [];
     }
@@ -34,5 +36,8 @@ export class Source extends BaseSource {
       menu: snippets[trigger],
       user_data: JSON.stringify({ "ultisnips": info[trigger] }),
     }));
+  }
+  params(): Params {
+    return {};
   }
 }
