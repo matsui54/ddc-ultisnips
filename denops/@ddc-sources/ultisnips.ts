@@ -1,5 +1,5 @@
-import { BaseSource, Item } from "https://deno.land/x/ddc_vim@v2.2.0/types.ts";
-import { Denops, vars } from "https://deno.land/x/ddc_vim@v2.2.0/deps.ts";
+import { BaseSource, Item } from "https://deno.land/x/ddc_vim@v2.3.0/types.ts";
+import { Denops, vars } from "https://deno.land/x/ddc_vim@v2.3.0/deps.ts";
 
 export type Snippets = {
   [word: string]: {
