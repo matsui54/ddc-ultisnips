@@ -40,6 +40,12 @@ EXAMPLES						*ddc-ultisnips-examples*
 ==============================================================================
 PARAMS							*ddc-ultisnips-params*
 
+					*ddc-ultisnips-param-expandSnippets*
+expandSnippets	(boolean)
+	Expand snippet on post confirming candidaites.
+
+	Default: |v:false|
+
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:noet:fen:noet:
 
