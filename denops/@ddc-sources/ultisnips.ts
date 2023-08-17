@@ -1,5 +1,7 @@
 import { BaseSource, Item } from "https://deno.land/x/ddc_vim@v3.4.0/types.ts";
 import { Denops, vars } from "https://deno.land/x/ddc_vim@v3.4.0/deps.ts";
+import { OnCompleteDoneArguments } from "https://deno.land/x/ddc_vim@v3.4.0/base/source.ts";
+import { feedkeys } from "https://deno.land/x/denops_std@v5.0.1/function/mod.ts";
 
 export type Snippets = {
   [word: string]: {
@@ -8,7 +10,9 @@ export type Snippets = {
   };
 };
 
-type Params = Record<never, never>;
+export type Params = {
+  expandSnippets: boolean;
+};
 
 export class Source extends BaseSource<Params> {
   async gather(args: {
@@ -31,10 +35,26 @@ export class Source extends BaseSource<Params> {
     return Object.keys(snippets).map((trigger) => ({
       word: trigger,
       menu: snippets[trigger],
-      user_data: JSON.stringify({ "ultisnips": info[trigger] }),
+      user_data: {
+        ultisnips: info[trigger],
+      },
     }));
   }
+
+  override async onCompleteDone({
+    denops,
+    sourceParams,
+  }: OnCompleteDoneArguments<Params, unknown>): Promise<void> {
+    if (!sourceParams.expandSnippets) {
+      return;
+    }
+    const keys = await denops.call("UltiSnips#ExpandSnippet");
+    await feedkeys(denops, keys, "nit");
+  }
+
   params(): Params {
-    return {};
+    return {
+      expandSnippets: false,
+    };
   }
 }
