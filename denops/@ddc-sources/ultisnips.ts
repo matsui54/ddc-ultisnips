@@ -1,6 +1,6 @@
-import { BaseSource, Item } from "https://deno.land/x/ddc_vim@v3.4.0/types.ts";
-import { Denops, vars } from "https://deno.land/x/ddc_vim@v3.4.0/deps.ts";
-import { OnCompleteDoneArguments } from "https://deno.land/x/ddc_vim@v3.4.0/base/source.ts";
+import { BaseSource, Item } from "https://deno.land/x/ddc_vim@v4.3.1/types.ts";
+import { Denops, vars } from "https://deno.land/x/ddc_vim@v4.3.1/deps.ts";
+import { OnCompleteDoneArguments } from "https://deno.land/x/ddc_vim@v4.3.1/base/source.ts";
 import { feedkeys } from "https://deno.land/x/denops_std@v5.0.1/function/mod.ts";
 
 export type Snippets = {
